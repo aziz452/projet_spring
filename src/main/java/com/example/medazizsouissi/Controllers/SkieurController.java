@@ -1,5 +1,6 @@
 package com.example.medazizsouissi.Controllers;
 
+import com.example.medazizsouissi.Entities.TypeAbonnement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import com.example.medazizsouissi.Entities.Skieur;
@@ -59,5 +60,11 @@ public class SkieurController {
     public Skieur AssignSkierToSubscription(@PathVariable long numSkieur, @PathVariable long numAbon) {
 
         return iSkieurService.AssignSkierToSubscription(numSkieur, numAbon);
+    }
+
+
+    @GetMapping("getSkieurParTypeAbon/{tp}")
+    public List<Skieur> getSkieurParTypeAbon(@PathVariable TypeAbonnement typeAbonnement){
+        return  iSkieurService.retrieveSkiersBySubscriptionType(typeAbonnement);
     }
 }

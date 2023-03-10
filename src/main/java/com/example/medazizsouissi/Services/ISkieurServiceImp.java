@@ -1,5 +1,6 @@
 package com.example.medazizsouissi.Services;
 
+import com.example.medazizsouissi.Entities.TypeAbonnement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.example.medazizsouissi.Entities.Abonnement;
@@ -73,5 +74,10 @@ Piste piste=pisteRepository.findById(numPiste).orElse(null);
 
         }
         return null;
+    }
+
+    @Override
+    public List<Skieur> retrieveSkiersBySubscriptionType(TypeAbonnement typeAbonnement) {
+        return skieurRepository.findSkieurByAbonnement_TypeAbon(typeAbonnement);
     }
 }

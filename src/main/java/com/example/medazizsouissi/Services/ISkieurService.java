@@ -1,6 +1,7 @@
 package com.example.medazizsouissi.Services;
 
 import com.example.medazizsouissi.Entities.Skieur;
+import com.example.medazizsouissi.Entities.TypeAbonnement;
 
 import java.util.List;
 import java.util.Optional;
@@ -15,5 +16,6 @@ public interface ISkieurService {
     Skieur updateSkieur (Skieur Skieur);
     Skieur assignSkierToPiste(Long numSkieur, Long numPiste);
     Skieur AssignSkierToSubscription(long numSkieur, long numAbon);
+    List<Skieur> retrieveSkiersBySubscriptionType(TypeAbonnement typeAbonnement);
 
 }
